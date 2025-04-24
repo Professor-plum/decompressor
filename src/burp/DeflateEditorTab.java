@@ -54,10 +54,9 @@ public class DeflateEditorTab extends AbstractDecompressorEditorTab implements I
 	protected byte[] compress(byte[] content) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		DeflaterOutputStream dos = new DeflaterOutputStream(baos);
-		GZIPOutputStream gzos = new GZIPOutputStream(baos);
-		gzos.write(content);
-		gzos.flush();
-		gzos.close();
+		dos.write(content);
+		dos.flush();
+		dos.close();
 		baos.close();
 		return baos.toByteArray();
 	}
